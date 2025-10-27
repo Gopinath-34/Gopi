@@ -1,298 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gopinath S — Electronics Engineer · Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <meta name="description" content="Portfolio of Gopinath S — Electronics & Communication student. Embedded systems, antenna design, Arduino projects, HFSS, MATLAB." />
-  <style>
-    :root{
-      --bg:#07060a;
-      --card: rgba(255,255,255,0.04);
-      --accent: linear-gradient(90deg,#60a5fa,#7c3aed,#06b6d4);
-      --muted:#9ca3af;
-      --glass: rgba(255,255,255,0.06);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:radial-gradient(ellipse at 10% 10%, rgba(124,58,237,0.12), transparent 10%), radial-gradient(ellipse at 90% 90%, rgba(6,182,212,0.06), transparent 10%), var(--bg);color:#e6eef8;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    a{color:inherit}
-    /* HEADER */
-    header{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:94%;max-width:1100px;z-index:50;border-radius:14px;padding:10px 18px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));backdrop-filter: blur(8px);display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#60a5fa,#7c3aed);font-weight:800;color:#fff}
-    .brand h1{font-size:16px;margin:0}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{font-size:14px;padding:8px 10px;border-radius:8px;opacity:0.95;text-decoration:none}
-    nav a:hover{background:var(--card);color:#fff}
-    /* MAIN LAYOUT */
-    main{padding-top:120px}
-    .container{max-width:1100px;margin:0 auto;padding:36px 18px}
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;margin-top:14px}
-    .intro{max-width:720px}
-    .eyebrow{display:inline-block;padding:6px 10px;background:linear-gradient(90deg, rgba(96,165,250,0.12), rgba(124,58,237,0.08));color:#bcd8ff;border-radius:999px;font-size:13px;margin-bottom:14px}
-    h2.title{font-size:42px;line-height:1.03;margin:6px 0 14px}
-    h2.title .accent{background:linear-gradient(90deg,#60a5fa,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
-    p.lead{color:var(--muted);font-size:17px;margin-bottom:20px}
-    .cta{display:flex;gap:12px}
-    .btn{padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:600;display:inline-flex;gap:10px;align-items:center}
-    .btn-primary{background:linear-gradient(90deg,#60a5fa,#7c3aed);color:#061226;box-shadow:0 8px 30px rgba(96,165,250,0.12)}
-    .btn-ghost{border:1px solid rgba(255,255,255,0.06);background:transparent;color:#dbeafe}
-    /* PROFILE CARD */
-    .card{background:var(--card);padding:22px;border-radius:16px;box-shadow:0 10px 40px rgba(2,6,23,0.6)}
-    .profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
-    .profile img{width:170px;height:170px;border-radius:18px;object-fit:cover;border:6px solid rgba(255,255,255,0.06)}
-    .pro-title{font-weight:700;font-size:20px}
-    .pro-sub{color:var(--muted);font-size:13px}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-    .badge{background:linear-gradient(90deg, rgba(96,165,250,0.08), rgba(124,58,237,0.04));padding:6px 10px;border-radius:999px;font-size:13px;color:#cfe9ff}
-    /* SECTIONS */
-    section{margin-top:40px}
-    .section-header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-    .section-header h3{color:#cfe9ff;margin:0;font-size:20px}
-    .muted{color:var(--muted);font-size:15px}
-    /* ABOUT & SKILLS */
-    .about-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
-    .about p{color:var(--muted);line-height:1.7}
-    .skills-list{display:flex;flex-direction:column;gap:14px}
-    .skill-item{display:flex;flex-direction:column;gap:8px}
-    .skill-row{display:flex;justify-content:space-between;font-weight:600}
-    .progress{height:10px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden}
-    .progress > i{display:block;height:100%;background:linear-gradient(90deg,#60a5fa,#06b6d4,#7c3aed)}
-    /* PROJECTS GRID */
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;transition:transform .28s,box-shadow .28s}
-    .project:hover{transform:translateY(-8px);box-shadow:0 18px 50px rgba(2,6,23,0.6)}
-    .project h4{margin:0 0 8px;color:#cfe9ff}
-    .project p{color:var(--muted);margin:0 0 12px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap}
-    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);color:#dbeafe}
-    /* TEAM */
-    .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-    .member{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;text-align:center}
-    .member img{width:84px;height:84px;border-radius:12px;object-fit:cover;margin-bottom:8px}
-    .member h5{margin:6px 0 3px;font-size:15px}
-    .member p{font-size:13px;color:var(--muted);margin:0}
-    /* CONTACT */
-    .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
-    .contact-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
-    .form-row{display:flex;gap:10px}
-    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#e6eef8}
-    textarea{min-height:120px;resize:vertical}
-    .foot{margin-top:44px;text-align:center;color:var(--muted);font-size:13px}
-    /* RESPONSIVE */
-    @media(max-width:980px){.hero{grid-template-columns:1fr;}.about-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
-    @media(max-width:560px){header{padding:10px;left:12px;transform:none;width:calc(100% - 24px)}h2.title{font-size:30px}.logo{width:40px;height:40px}}
-    /* Small animated flourish */
-    .glow{display:inline-block;padding:0 6px;border-radius:6px;box-decoration-break:clone;background:linear-gradient(90deg,#60a5fa,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .micro{font-size:12px;color:var(--muted)}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gopinath S | ECE Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #60a5fa;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        .hero a {
+            text-decoration: none;
+            background: #60a5fa;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .hero a:hover {
+            background: #2563eb;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        h3.section-title {
+            font-size: 28px;
+            color: #60a5fa;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* About */
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about img {
+            width: 280px;
+            border-radius: 15px;
+        }
+
+        .about-text {
+            max-width: 600px;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        /* Skills */
+        .skills {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill span {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress {
+            width: 100%;
+            height: 10px;
+            background: #1e293b;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress div {
+            height: 10px;
+            background: #60a5fa;
+            border-radius: 5px;
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: #2b3b52;
+        }
+
+        .project-card h4 {
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #60a5fa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111827;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                margin-top: 10px;
+            }
+            .about {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo">GS</div>
-      <div>
-        <h1 style="margin:0;font-size:14px">Gopinath S</h1>
-        <div class="micro">Electronics & Communication — SSM Institute</div>
-      </div>
-    </div>
+
+<header>
+    <h1>Gopinath S</h1>
     <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#team">Collaborators</a>
-      <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <main>
-    <div class="container">
-      <!-- HERO -->
-      <section class="hero" id="home">
-        <div class="intro">
-          <div class="eyebrow">Open to internships · RF · Embedded · PCB</div>
-          <h2 class="title">Hello — I’m <span class="accent">Gopinath S</span><br><span class="micro">Electronics Engineer in training</span></h2>
-          <p class="lead">I design hardware that thinks — combining embedded systems, RF & antenna design, and simulation-driven PCB workflows. I build reliable prototypes with Arduino, simulate high-frequency systems with HFSS, and analyze signals in MATLAB.</p>
-
-          <div class="cta">
-            <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Get in touch</a>
-            <a class="btn btn-ghost" href="resume.pdf" download><i class="fa-solid fa-arrow-down"></i> Download Resume</a>
-          </div>
-
-          <div style="margin-top:20px;display:flex;gap:12px;align-items:center">
-            <div class="card" style="padding:10px 12px;border-radius:10px;display:flex;gap:10px;align-items:center">
-              <div style="font-weight:700">Intern @ Quateck</div>
-              <div class="micro" style="margin-left:8px">(Antenna & PCB Design · Jul 2025)</div>
-            </div>
-            <div class="card" style="padding:10px 12px;border-radius:10px">
-              <div style="font-weight:700">Obstacle Avoidance Car</div>
-              <div class="micro">Arduino · L293D · Ultrasonic</div>
-            </div>
-          </div>
-        </div>
-
-        <aside class="card profile">
-          <img src="c:\Users\USER\Downloads\gopinath.jpg" alt="Gopinath photo">
-          <div class="pro-title">Gopinath S</div>
-          <div class="pro-sub">B.E. ECE — SSM Institute of Engineering and Technology</div>
-          <div class="badges">
-            <div class="badge">Arduino</div>
-            <div class="badge">HFSS</div>
-            <div class="badge">MATLAB</div>
-          </div>
-          <div style="display:flex;gap:8px;margin-top:8px">
-            <a href="#contact" class="btn btn-ghost" style="padding:8px 12px"><i class="fab fa-linkedin"></i></a>
-            <a href="#projects" class="btn btn-ghost" style="padding:8px 12px"><i class="fab fa-github"></i></a>
-          </div>
-        </aside>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about">
-        <div class="section-header">
-          <h3>About Me</h3>
-        </div>
-        <div class="about-grid">
-          <div>
-            <p><strong>Curious hardware-first engineer</strong> who brings software thinking into circuitry. I enjoy designing from breadboard to PCB: prototyping sensors and control systems, simulating RF structures, and validating systems with measurements.</p>
-            <p>I’m currently focused on: <em>embedded automation, antenna & RF design, PCB workflow, and practical signal analysis</em>. I enjoy mentoring peers, preparing for technical interviews, and exploring research topics in renewable energy and remote sensing.</p>
-            <p class="muted">Location: Dindigul, Tamil Nadu · Phone: 8838517718 · Email: gopinath@example.com</p>
-          </div>
-          <div class="card">
-            <div style="font-weight:700;margin-bottom:10px">Key highlights</div>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px">
-              <li class="micro">• Internship at Quateck — Antenna & PCB Design (Jul 2025)</li>
-              <li class="micro">• Led Obstacle Avoidance Car project — Arduino, Motor Shield, Ultrasonics</li>
-              <li class="micro">• Coursework & mini-projects: Remote Sensing, Renewable Energy, AI/ML basics</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- SKILLS -->
-      <section id="skills">
-        <div class="section-header"><h3>Skills</h3></div>
-        <div class="skills-list card" style="padding:20px">
-          <div class="skill-item">
-            <div class="skill-row"><span>Arduino & Embedded Systems</span><span>95%</span></div>
-            <div class="progress"><i style="width:95%"></i></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-row"><span>Proteus & Simulation</span><span>88%</span></div>
-            <div class="progress"><i style="width:88%"></i></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-row"><span>HFSS & Antenna Design</span><span>82%</span></div>
-            <div class="progress"><i style="width:82%"></i></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-row"><span>MATLAB — Signal Processing</span><span>78%</span></div>
-            <div class="progress"><i style="width:78%"></i></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-row"><span>AI & ML Basics</span><span>70%</span></div>
-            <div class="progress"><i style="width:70%"></i></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects">
-        <div class="section-header"><h3>Selected Projects</h3></div>
-        <div class="projects-grid">
-          <article class="project">
-            <h4>Obstacle Avoidance Car</h4>
-            <p>Autonomous navigation prototype using Arduino, L293D motor shield, HC-SR04 ultrasonic sensor and servo steering. Focus: reliable obstacle detection and smooth steering response.</p>
-            <div class="tags"><span class="tag">Arduino</span><span class="tag">Embedded</span><span class="tag">Sensors</span></div>
-          </article>
-
-          <article class="project">
-            <h4>Microstrip Patch Antenna — Design & SAR Study</h4>
-            <p>Designed microstrip patch antenna, performed HFSS simulation and SAR measurement planning. Studied substrate, air-gap and near-field considerations for 2.448 GHz.</p>
-            <div class="tags"><span class="tag">HFSS</span><span class="tag">RF</span><span class="tag">EM Simulation</span></div>
-          </article>
-
-          <article class="project">
-            <h4>Remote Sensing Data Integration</h4>
-            <p>Analyzed GIS & remote sensing datasets for crop recommendation prototypes and explored security and accessibility challenges in large-scale agricultural datasets.</p>
-            <div class="tags"><span class="tag">GIS</span><span class="tag">Data</span><span class="tag">Research</span></div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- TEAM / FRIENDS -->
-      <section id="team">
-        <div class="section-header"><h3>Collaborators & Friends</h3></div>
-        <div class="team">
-          <div class="member"><img src="team/arjun.jpg" alt="Arjun"><h5>Arjun Dev</h5><p>PCB & Circuit Wizard</p></div>
-          <div class="member"><img src="team/kaviya.jpg" alt="Kaviya"><h5>Kaviya Raj</h5><p>Product Designer</p></div>
-          <div class="member"><img src="team/sanjith.jpg" alt="Sanjith"><h5>Sanjith R</h5><p>Robotics Expert</p></div>
-          <div class="member"><img src="team/nandhini.jpg" alt="Nandhini"><h5>Nandhini K</h5><p>AI & Data</p></div>
-          <div class="member"><img src="team/vishwa.jpg" alt="Vishwa"><h5>Vishwa Kumar</h5><p>PCB Layout</p></div>
-          <div class="member"><img src="team/deepa.jpg" alt="Deepa"><h5>Deepa Rani</h5><p>Project Coordinator</p></div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="section-header"><h3>Contact</h3></div>
-        <div class="contact-grid">
-          <div>
-            <div class="contact-card card">
-              <div style="display:flex;justify-content:space-between;align-items:center">
-                <div>
-                  <div style="font-weight:700">Let's talk</div>
-                  <div class="micro">Open to internships, collaborations and research queries</div>
-                </div>
-                <div style="text-align:right;color:var(--muted)">
-                  <div>📍 Dindigul, Tamil Nadu</div>
-                  <div>📞 8838517718</div>
-                  <div>✉️ gopinath@example.com</div>
-                </div>
-              </div>
-              <div style="margin-top:12px" class="muted">Or send a quick message — I usually reply within a couple of days.</div>
-            </div>
-          </div>
-
-          <form class="contact-card" onsubmit="handleForm(event)">
-            <label class="micro">Name</label>
-            <input id="name" placeholder="Your name" required />
-            <div class="form-row">
-              <div style="flex:1"><label class="micro">Email</label><input id="email" type="email" placeholder="you@mail.com" required /></div>
-              <div style="flex:1"><label class="micro">Subject</label><input id="subject" placeholder="Message subject" /></div>
-            </div>
-            <label class="micro">Message</label>
-            <textarea id="message" placeholder="Write a short message..." required></textarea>
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
-              <button class="btn btn-ghost" type="reset">Reset</button>
-            </div>
-          </form>
-        </div>
-
-      </section>
-
-      <div class="foot">© 2025 Gopinath S · Built with care · Replace placeholders (images, resume) with your files.</div>
+<section class="hero" id="home">
+    <div>
+        <img src="c:\Users\USER\Downloads\gopinath.jpg" alt="Gopinath S">
+        <h2>I'm Gopinath S</h2>
+        <p>ECE Student at SSM Institute of Engineering and Technology, Dindigul</p>
+        <a href="#contact">Contact Me</a>
     </div>
-  </main>
+</section>
 
-  <script>
-    // Smooth in-page nav highlight (simple)
-    document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active')}))
+<section id="about">
+    <h3 class="section-title">About Me</h3>
+    <div class="about">
+        <img src="c:\Users\USER\Downloads\gopinath.jpg" alt="About Gopinath">
+        <div class="about-text">
+            <p>Hello! I’m <strong>Gopinath S</strong>, an Electronics and Communication Engineering student from <strong>SSM Institute of Engineering and Technology, Dindigul</strong>. 
+            My interests include embedded systems, antenna design, and automation. 
+            I’ve worked with tools like Arduino, Proteus, HFSS, and MATLAB. 
+            I enjoy developing projects that combine electronics and intelligent systems.</p>
+        </div>
+    </div>
+</section>
 
-    // Simple form handler — currently local only; it shows a success toast
-    function handleForm(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      // In production, hook this to EmailJS, Netlify functions, or backend endpoint.
-      alert('Thanks '+name+"!\nMessage received. I'll contact you at " + email + ' soon.');
-      e.target.reset();
-    }
-  </script>
+<section id="skills">
+    <h3 class="section-title">My Skills</h3>
+    <div class="skills">
+        <div class="skill"><span>Arduino <span>90%</span></span><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill"><span>Proteus <span>85%</span></span><div class="progress"><div style="width:85%"></div></div></div>
+        <div class="skill"><span>HFSS <span>80%</span></span><div class="progress"><div style="width:80%"></div></div></div>
+        <div class="skill"><span>MATLAB <span>75%</span></span><div class="progress"><div style="width:75%"></div></div></div>
+        <div class="skill"><span>AI & ML Basics <span>70%</span></span><div class="progress"><div style="width:70%"></div></div></div>
+    </div>
+</section>
+
+<section id="projects">
+    <h3 class="section-title">Projects</h3>
+    <div class="projects">
+        <div class="project-card">
+            <h4>Obstacle Avoidance Car</h4>
+            <p>Built with Arduino and L293D motor driver shield using ultrasonic sensors and servo control for navigation.</p>
+        </div>
+        <div class="project-card">
+            <h4>Microstrip Patch Antenna Design</h4>
+            <p>Designed and simulated antenna structures using HFSS for SAR value and communication studies.</p>
+        </div>
+        <div class="project-card">
+            <h4>Remote Sensing Data Analysis</h4>
+            <p>Worked on integrating GIS and remote sensing data for agricultural and renewable energy applications.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h3 class="section-title">Contact</h3>
+    <div class="contact">
+        <p><i class="fas fa-phone"></i> 9597585710</p>
+        <p><i class="fas fa-envelope"></i> gg9775329@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> Dindigul, Tamil Nadu, India</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2025 Gopinath S | Designed with ❤️ by Me
+</footer>
+
 </body>
 </html>
